@@ -74,7 +74,7 @@ function! IsReturnByStr(str)
     return a:str =~? '^\s*return.*\(;.*\)\?$' ? s:TRUE : s:FALSE
 endfunction
 
-" Check IF/FOR/TRY/CATCH STATEMENT(without BLOCK)
+" Check IF/ELSE/FOR/LOOP/WHILE/TRY/CATCH STATEMENT(without BLOCK)
 " TRUE:
 " if
 " if ; with comment
@@ -82,6 +82,10 @@ endfunction
 " else ; with comment
 " for 
 " for ; with comment
+" loop
+" loop ; with comment
+" while
+" while ; with comment
 " try
 " try ; with comment
 " catch
@@ -91,7 +95,7 @@ endfunction
 " if {
 " else {
 function! IsIfStatementByStr(str)
-    return a:str =~? '^\s*\(if\|else\|for\|try\|catch\)[^{]*\(;.*\)\?$'
+    return a:str =~? '^\s*\(if\|else\|for\|loop\|while\|try\|catch\)[^{]*\(;.*\)\?$'
     	\          ? s:TRUE
 	\          : s:FALSE
 endfunction
